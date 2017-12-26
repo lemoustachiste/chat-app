@@ -9,5 +9,12 @@ export const mapStateToProps = (state) => {
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  null,
+  null,
+  // QUICKFIX: for some reason updating the messages list after a delete does not refresh the component
+  // TODO: understand better why it does not rerender...
+  {
+    pure: false
+  }
 )(MessageList)
