@@ -1,7 +1,7 @@
 const possibleActions = [
   {
     key: '/oops',
-    action: 'delete'
+    action: 'deleteLast'
   }
 ]
 
