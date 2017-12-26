@@ -1,5 +1,7 @@
 import commitMessage from './commitMessage'
+import registerExternalMessage from './registerExternalMessage'
 
 export {
-  commitMessage
+  commitMessage,
+  registerExternalMessage
 }

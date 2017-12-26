@@ -1,4 +1,4 @@
-export default function commitMessage (state, { payload = {} }) {
+export default function saveMessage (state, { payload = {} }) {
   return {
     ...state,
     messages: [
