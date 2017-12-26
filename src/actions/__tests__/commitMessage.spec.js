@@ -43,5 +43,26 @@ describe('commitMessage action creator test suite', function () {
         expect(store.getState().messages[0]).toEqual(initialState.messages[0])
       })
     })
+
+    describe('when the user is thinking', function () {
+      it('should set the message as such', function () {
+        const initialState = {
+          messages: []
+        }
+
+        const text = '/think I wonder why Alice didn\'t ask for coffee'
+
+        const store = configureStore({ initialState })
+        store.dispatch(commitMessage(text))
+
+        const expectedOutput = {
+          origin: LOCAL_ORIGIN,
+          thinking: true,
+          text
+        }
+
+        expect(store.getState().messages[0]).toEqual(expectedOutput)
+      })
+    })
   })
 })

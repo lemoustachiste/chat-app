@@ -2,6 +2,10 @@ const possibleActions = [
   {
     key: '/oops',
     action: 'deleteLast'
+  },
+  {
+    key: '/think',
+    action: 'thinking'
   }
 ]
 

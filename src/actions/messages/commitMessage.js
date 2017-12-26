@@ -3,27 +3,36 @@ import { LOCAL_ORIGIN } from '../../constants/messages'
 import domain from '../../domain'
 
 const actionMapper = {
-  'deleteLast': ACTIONS.DELETE_LAST_MESSAGE
+  'deleteLast': ACTIONS.DELETE_LAST_MESSAGE,
+  'thinking': ACTIONS.THINKING_MESSAGE
 }
 
 export default function commitMessage (text) {
   return (dispatch, getState) => {
     const messageAction = domain.messages.getAction(text)
 
+    const defaultPayloadMessage = {
+      origin: LOCAL_ORIGIN,
+      text
+    }
+
     if (messageAction.length > 0) {
       const action = messageAction[0].action
       return dispatch({
-        type: actionMapper[action]
+        type: actionMapper[action],
+        payload: {
+            message: {
+            ...defaultPayloadMessage,
+            thinking: actionMapper[action] === ACTIONS.THINKING_MESSAGE
+          }
+        }
       })
     }
 
     return dispatch({
       type: ACTIONS.COMMIT_MESSAGE,
       payload: {
-        message: {
-          origin: LOCAL_ORIGIN,
-          text
-        }
+        message: defaultPayloadMessage
       }
     })
   }
