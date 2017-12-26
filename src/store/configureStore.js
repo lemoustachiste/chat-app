@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import messagesReducer from '../reducers/messages'
 import { ENV } from '../utils/environment'
 
-export default function configureStore () {
+export default function configureStore ({ initialState }) {
   const middlewares = []
   const preloadedState = {}
 
@@ -13,7 +13,7 @@ export default function configureStore () {
 
   return createStore(
     messagesReducer,
-    preloadedState,
+    initialState,
     applyMiddleware(...middlewares)
   )
 }

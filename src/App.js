@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import configureStore from './store/configureStore'
+import { configureStore, getInitialState } from './store'
 import { ChatBoard } from './components/organisms'
 
 class App extends Component {
   constructor () {
     super()
-    this.store = configureStore()
+    const initialState = getInitialState()
+    this.store = configureStore({ initialState })
   }
 
   render() {
