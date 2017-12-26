@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Header } from '../../atoms'
 import { ChatInput, MessageList } from '../../molecules'
 
