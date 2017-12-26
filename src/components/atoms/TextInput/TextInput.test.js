@@ -11,11 +11,17 @@ describe('<TextInput /> test suite', function () {
     describe('when the ENTER key is pressed', function () {
       let onSendMessageSpy
       let wrapper
+      let instance
       let evt
 
       beforeEach(function () {
         onSendMessageSpy = sinon.spy()
         wrapper = shallow(<TextInput onSendMessage={onSendMessageSpy} />)
+        instance = wrapper.instance()
+        instance.input = {
+          value: 'this is a test'
+        }
+
         evt = {
           keyCode: KEY.ENTER,
           stopPropagation: noop,
@@ -31,6 +37,7 @@ describe('<TextInput /> test suite', function () {
       afterEach(function () {
         onSendMessageSpy = null
         wrapper = null
+        instance = null
         evt = null
       })
 
@@ -40,6 +47,10 @@ describe('<TextInput /> test suite', function () {
 
       it('should call the onSendMessage callback with the value of the input', function () {
         expect(onSendMessageSpy.calledWith('this is a test')).toBe(true)
+      })
+
+      it('should reset the input value', function () {
+        expect(instance.input.value).toBe('')
       })
     })
   })
