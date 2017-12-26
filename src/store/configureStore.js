@@ -1,6 +1,19 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import messagesReducer from '../reducers/messages'
+import { ENV } from '../utils/environment'
 
 export default function configureStore () {
-  return createStore(messagesReducer)
+  const middlewares = []
+  const preloadedState = {}
+
+  if (ENV.debugEnabled) {
+    const logger = require('redux-logger')
+    middlewares.push(logger.createLogger())
+  }
+
+  return createStore(
+    messagesReducer,
+    preloadedState,
+    applyMiddleware(...middlewares)
+  )
 }
