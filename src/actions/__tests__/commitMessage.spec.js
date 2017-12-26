@@ -58,7 +58,7 @@ describe('commitMessage action creator test suite', function () {
         const expectedOutput = {
           origin: LOCAL_ORIGIN,
           thinking: true,
-          text
+          text: 'I wonder why Alice didn\'t ask for coffee'
         }
 
         expect(store.getState().messages[0]).toEqual(expectedOutput)

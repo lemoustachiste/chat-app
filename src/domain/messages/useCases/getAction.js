@@ -10,7 +10,12 @@ const possibleActions = [
 ]
 
 export default function getAction (text) {
-  return possibleActions.filter(action => {
-    return text.substr(0, action.key.length) === action.key
+  return possibleActions.filter(action =>
+    text.substr(0, action.key.length) === action.key
+  ).map(action => {
+    return {
+      ...action,
+      parsedText: text.substr(action.key.length, text.length).trim()
+    }
   })
 }

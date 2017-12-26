@@ -13,7 +13,7 @@ export default function commitMessage (text) {
 
     const defaultPayloadMessage = {
       origin: LOCAL_ORIGIN,
-      text
+      text: text
     }
 
     if (messageAction.length > 0) {
@@ -23,6 +23,7 @@ export default function commitMessage (text) {
         payload: {
             message: {
             ...defaultPayloadMessage,
+            text: messageAction[0].parsedText,
             thinking: actionMapper[action] === ACTIONS.THINKING_MESSAGE
           }
         }
