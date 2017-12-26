@@ -13,7 +13,7 @@ class TextInput extends PureComponent {
     const { keyCode } = evt
 
     if (keyCode === ENTER) {
-      this.props.onSendText(evt.target.value)
+      this.props.onSendMessage(evt.target.value)
       evt.stopPropagation()
       evt.preventDefault()
     }
@@ -27,11 +27,11 @@ class TextInput extends PureComponent {
 }
 
 TextInput.defaultProps = {
-  onSendText: () => {}
+  onSendMessage: () => {}
 }
 
 TextInput.propTypes = {
-  onSendText: PropTypes.func
+  onSendMessage: PropTypes.func
 }
 
 export default TextInput

@@ -1,3 +1,3 @@
-import ChatInput from './ChatInput'
+import { default as ChatInput } from './ChatInputContainer'
 
 export default ChatInput

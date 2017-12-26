@@ -9,13 +9,13 @@ const noop = () => {}
 describe('<TextInput /> test suite', function () {
   describe('callback management', function () {
     describe('when the ENTER key is pressed', function () {
-      let onSendTextSpy
+      let onSendMessageSpy
       let wrapper
       let evt
 
       beforeEach(function () {
-        onSendTextSpy = sinon.spy()
-        wrapper = shallow(<TextInput onSendText={onSendTextSpy} />)
+        onSendMessageSpy = sinon.spy()
+        wrapper = shallow(<TextInput onSendMessage={onSendMessageSpy} />)
         evt = {
           keyCode: KEY.ENTER,
           stopPropagation: noop,
@@ -29,17 +29,17 @@ describe('<TextInput /> test suite', function () {
       })
 
       afterEach(function () {
-        onSendTextSpy = null
+        onSendMessageSpy = null
         wrapper = null
         evt = null
       })
 
-      it('should call the onSendText callback provided', function () {
-        expect(onSendTextSpy.calledOnce).toBe(true)
+      it('should call the onSendMessage callback provided', function () {
+        expect(onSendMessageSpy.calledOnce).toBe(true)
       })
 
-      it('should call the onSendText callback with the value of the input', function () {
-        expect(onSendTextSpy.calledWith('this is a test')).toBe(true)
+      it('should call the onSendMessage callback with the value of the input', function () {
+        expect(onSendMessageSpy.calledWith('this is a test')).toBe(true)
       })
     })
   })
