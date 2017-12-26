@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Chatboard from './components/Chatboard/'
+import { ChatBoard } from './components/organisms'
 
 class App extends Component {
   render() {
     return (
-      <Chatboard />
+      <ChatBoard />
     )
   }
 }
