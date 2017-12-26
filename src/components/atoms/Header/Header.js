@@ -10,6 +10,10 @@ const Header = ({ userName }) => {
   )
 }
 
+Header.defaultProps = {
+  userName: ''
+}
+
 Header.propTypes = {
   userName: PropTypes.string
 }
