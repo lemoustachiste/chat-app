@@ -1,5 +1,7 @@
-import ChatInput from './ChatInput/'
+import ChatInput from './ChatInput'
+import MessageList from './MessageList'
 
 export {
-  ChatInput
+  ChatInput,
+  MessageList
 }
