@@ -10,30 +10,25 @@ const actionMapper = {
 export default function commitMessage (text) {
   return (dispatch, getState) => {
     const messageAction = domain.messages.getAction(text)
-
-    const defaultPayloadMessage = {
-      origin: LOCAL_ORIGIN,
-      text: text
-    }
+    let action = ACTIONS.COMMIT_MESSAGE
+    let thinking = false
 
     if (messageAction.length > 0) {
-      const action = messageAction[0].action
-      return dispatch({
-        type: actionMapper[action],
-        payload: {
-            message: {
-            ...defaultPayloadMessage,
-            text: messageAction[0].parsedText,
-            thinking: actionMapper[action] === ACTIONS.THINKING_MESSAGE
-          }
-        }
-      })
+      action = messageAction[0].action
+      text = messageAction[0].parsedText
+      thinking = actionMapper[action] === ACTIONS.THINKING_MESSAGE
+    }
+
+    const message = {
+      origin: LOCAL_ORIGIN,
+      text,
+      ...thinking && { thinking }
     }
 
     return dispatch({
-      type: ACTIONS.COMMIT_MESSAGE,
+      type: actionMapper[action] || action,
       payload: {
-        message: defaultPayloadMessage
+        message
       }
     })
   }
