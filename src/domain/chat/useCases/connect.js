@@ -8,9 +8,5 @@ export default function connect () {
 
   socket.on('connect', function () {
     console.log('Connected to chat server')
-
-    socket.on('emitting chat message', function (data) {
-      console.log('received some data', data)
-    })
   })
 }
