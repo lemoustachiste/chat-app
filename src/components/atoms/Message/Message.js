@@ -10,7 +10,7 @@ const Message = ({ text, origin }) => {
   const wrapperClasses = classNames(
     'chat-c-message-wrapper',
     {
-      'chat-c-message-wrapper--local': isLocalMessage
+      'chat-c-message-wrapper--local': isLocalMessage,
     }
   )
 
@@ -19,7 +19,8 @@ const Message = ({ text, origin }) => {
     'chat-c-bubble',
     {
       'chat-c-message--local': isLocalMessage,
-      'chat-c-bubble--local': isLocalMessage
+      'chat-c-bubble--local': isLocalMessage,
+      'chat-c-bubble--external': !isLocalMessage
     }
   )
 
