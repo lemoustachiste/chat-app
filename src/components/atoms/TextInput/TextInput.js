@@ -7,11 +7,11 @@ class TextInput extends PureComponent {
   constructor () {
     super()
     this.handleKeyDown = this.handleKeyDown.bind(this)
-    this.handleSendMessage = this.handleSendMessage.bind(this)
+    this.handleCommitMessage = this.handleCommitMessage.bind(this)
   }
 
-  handleSendMessage (text) {
-    this.props.onSendMessage(text)
+  handleCommitMessage (text) {
+    this.props.onCommitMessage(text)
     this.resetInputValue()
   }
 
@@ -19,7 +19,7 @@ class TextInput extends PureComponent {
     const { keyCode } = evt
 
     if (keyCode === ENTER) {
-      this.handleSendMessage(evt.target.value)
+      this.handleCommitMessage(evt.target.value)
       evt.stopPropagation()
       evt.preventDefault()
     }
@@ -42,11 +42,11 @@ class TextInput extends PureComponent {
 }
 
 TextInput.defaultProps = {
-  onSendMessage: () => {}
+  onCommitMessage: () => {}
 }
 
 TextInput.propTypes = {
-  onSendMessage: PropTypes.func
+  onCommitMessage: PropTypes.func
 }
 
 export default TextInput

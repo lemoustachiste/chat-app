@@ -1,8 +1,8 @@
 import configureStore from '../../store/configureStore'
-import { sendMessage } from '../messages'
+import { commitMessage } from '../messages'
 import { LOCAL_ORIGIN } from '../../constants/messages'
 
-describe('sendMessage action creator test suite', function () {
+describe('commitMessage action creator test suite', function () {
   it('should update the state with the new message passed in', function () {
     const initialState = {
       messages: []
@@ -11,7 +11,7 @@ describe('sendMessage action creator test suite', function () {
     const text = 'Yo, what\'s up?'
 
     const store = configureStore({ initialState })
-    store.dispatch(sendMessage(text))
+    store.dispatch(commitMessage(text))
 
     const expectedOutput = {
       origin: LOCAL_ORIGIN,

@@ -1,9 +1,9 @@
 import * as ACTIONS from '../../constants/actionTypes'
 import { LOCAL_ORIGIN } from '../../constants/messages'
 
-export default function sendMessage (text) {
+export default function commitMessage (text) {
   return {
-    type: ACTIONS.SEND_MESSAGE,
+    type: ACTIONS.COMMIT_MESSAGE,
     payload: {
       message: {
         origin: LOCAL_ORIGIN,

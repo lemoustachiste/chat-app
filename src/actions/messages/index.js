@@ -1,5 +1,5 @@
-import sendMessage from './sendMessage'
+import commitMessage from './commitMessage'
 
 export {
-  sendMessage
+  commitMessage
 }

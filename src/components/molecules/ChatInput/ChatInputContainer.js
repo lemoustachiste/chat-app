@@ -5,7 +5,7 @@ import ChatInput from './ChatInput'
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    onSendMessage: actions.messages.sendMessage
+    onCommitMessage: actions.messages.commitMessage
   }, dispatch)
 }
 

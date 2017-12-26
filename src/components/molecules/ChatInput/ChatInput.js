@@ -2,17 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { SendButton, TextInput } from '../../atoms'
 
-const ChatInput = ({ onSendMessage }) => {
+const ChatInput = ({ onCommitMessage }) => {
   return (
     <section className='chat-c-chatinput'>
-      <TextInput onSendMessage={onSendMessage} />
+      <TextInput onCommitMessage={onCommitMessage} />
       <SendButton />
     </section>
   )
 }
 
 ChatInput.propTypes = {
-  onSendMessage: PropTypes.func
+  onCommitMessage: PropTypes.func
 }
 
 export default ChatInput

@@ -1,10 +1,10 @@
 import * as ACTIONS from '../../constants/actionTypes'
-import sendMessage from './sendMessage'
+import commitMessage from './commitMessage'
 
 export default function messages (state = {}, action) {
   switch (action.type) {
-    case ACTIONS.SEND_MESSAGE:
-      return sendMessage(state, action)
+    case ACTIONS.COMMIT_MESSAGE:
+      return commitMessage(state, action)
     
     default:
       return state

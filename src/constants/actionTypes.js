@@ -1,1 +1,1 @@
-export const SEND_MESSAGE = 'SEND_MESSAGE'
+export const COMMIT_MESSAGE = 'COMMIT_MESSAGE'
