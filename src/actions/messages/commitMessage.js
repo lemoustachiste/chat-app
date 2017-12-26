@@ -25,11 +25,13 @@ export default function commitMessage (text) {
       ...thinking && { thinking }
     }
 
-    return dispatch({
+    dispatch({
       type: actionMapper[action] || action,
       payload: {
         message
       }
     })
+
+    domain.messages.post(message)
   }
 }
