@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import { LOCAL_ORIGIN } from '../../../constants/messages'
 
-const Message = ({ text, origin }) => {
+const Message = ({ text, origin, thinking }) => {
   const isLocalMessage = origin === LOCAL_ORIGIN
 
   const wrapperClasses = classNames(
@@ -18,6 +18,7 @@ const Message = ({ text, origin }) => {
     'chat-c-message',
     'chat-c-bubble',
     {
+      'chat-c-message--light': !!thinking,
       'chat-c-message--local': isLocalMessage,
       'chat-c-bubble--local': isLocalMessage,
       'chat-c-bubble--external': !isLocalMessage
