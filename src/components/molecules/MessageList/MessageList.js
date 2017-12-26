@@ -7,9 +7,7 @@ const MessageList = ({ messages }) => {
     <div className='chat-c-message-list'>
       {
         messages.map((message, i) => (
-          <div className='chat-c-message-wrapper'>
-            <Message {...message} key={`message-${i}`} />
-          </div>
+          <Message {...message} key={`message-${i}`} />
         ))
       }
     </div>
