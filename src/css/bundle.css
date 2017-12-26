@@ -336,6 +336,9 @@ th {
 [class^="chat-"] * {
   box-sizing: border-box; }
 
+.chat-c-chatinput {
+  display: flex; }
+
 .chat-c-header {
   margin-top: 0;
   font-size: 1.4em; }
@@ -348,3 +351,6 @@ th {
   height: 100%;
   padding: 50px;
   margin: 0 auto; }
+
+.chat-c-textinput {
+  flex-grow: 1; }
