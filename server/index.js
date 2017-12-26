@@ -7,12 +7,9 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 io.sockets.on('connection', function(socket) {
   console.log('user connected')
-  // We're connected to someone now. Let's listen for events from them
-  socket.on('chat message', function(data) {
-    // We've received some data. Let's just log it
+  socket.on('entering chat message', function(data) {
     console.log(data)
-    // Now let's reply
-    socket.emit('event', {some: "data"})
+    socket.broadcast.emit('emitting chat message', data)
   })
 })
 
