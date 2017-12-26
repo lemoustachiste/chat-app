@@ -11,6 +11,10 @@ class TextInput extends PureComponent {
   }
 
   handleCommitMessage (text) {
+    if (!text) {
+      return
+    }
+
     this.props.onCommitMessage(text)
     this.resetInputValue()
   }
