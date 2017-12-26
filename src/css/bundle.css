@@ -336,6 +336,10 @@ th {
 [class^="chat-"] * {
   box-sizing: border-box; }
 
+.chat-c-header {
+  margin-top: 0;
+  font-size: 1.4em; }
+
 .chat-c-main {
   border: 1px solid;
   border-radius: 10px;
