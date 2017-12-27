@@ -64,5 +64,20 @@ describe('commitMessage action creator test suite', function () {
         expect(store.getState().messages[0]).toEqual(expectedOutput)
       })
     })
+
+    describe('when the user wants to set their nickname', function () {
+      it('should update the state with the nickname passed in', function () {
+        const initialState = {
+          chat: {}
+        }
+
+        const text = '/nick Will'
+
+        const store = configureStore({ initialState })
+        store.dispatch(commitMessage(text))
+
+        expect(store.getState().chat.nickname).toBe('Will')
+      })
+    })
   })
 })
