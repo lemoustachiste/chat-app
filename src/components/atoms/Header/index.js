@@ -1,3 +1,3 @@
-import Header from './Header'
+import { default as Header } from './HeaderContainer'
 
 export default Header

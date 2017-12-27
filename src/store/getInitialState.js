@@ -1,6 +1,8 @@
 export default function getInitialState () {
   return {
     messages: [],
-    chat: {}
+    chat: {
+      buddy: {}
+    }
   }
 }
