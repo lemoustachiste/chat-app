@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-
-const ENTER = 13
+import { KEY } from '../../../constants/keyCodes'
 
 class TextInput extends PureComponent {
   constructor () {
@@ -22,7 +21,7 @@ class TextInput extends PureComponent {
   handleKeyDown (evt) {
     const { keyCode } = evt
 
-    if (keyCode === ENTER) {
+    if (keyCode === KEY.ENTER) {
       this.handleCommitMessage(evt.target.value)
       evt.stopPropagation()
       evt.preventDefault()
@@ -40,17 +39,20 @@ class TextInput extends PureComponent {
         type='text'
         className='chat-c-textinput'
         onKeyDown={this.handleKeyDown}
+        onChange={this.props.onInputChange}
       />
     )
   }
 }
 
 TextInput.defaultProps = {
-  onCommitMessage: () => {}
+  onCommitMessage: () => {},
+  onInputChange: () => {}
 }
 
 TextInput.propTypes = {
-  onCommitMessage: PropTypes.func
+  onCommitMessage: PropTypes.func,
+  onInputChange: PropTypes.func
 }
 
 export default TextInput

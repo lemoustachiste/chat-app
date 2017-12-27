@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SendButton = ({ onSend }) => {
+const SendButton = ({ onClick }) => {
   return (
-    <button className='chat-c-button' onClick={onSend}>Send</button>
+    <button className='chat-c-button' onClick={onClick}>Send</button>
   )
 }
 
 SendButton.propTypes = {
-  onSend: PropTypes.func
+  onClick: PropTypes.func
 }
 
 export default SendButton

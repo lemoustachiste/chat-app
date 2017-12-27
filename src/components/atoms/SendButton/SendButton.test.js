@@ -6,12 +6,12 @@ import SendButton from './SendButton'
 describe('<SendButton /> test suite', function () {
   describe('callback management', function () {
     describe('when clicking the button', function () {
-      it('should call the onSend callback', function () {
-        const onSendSpy = sinon.spy()
-        const wrapper = shallow(<SendButton onSend={onSendSpy} />)
+      it('should call the onClick callback', function () {
+        const onClickSpy = sinon.spy()
+        const wrapper = shallow(<SendButton onClick={onClickSpy} />)
         wrapper.simulate('click', {})
 
-        expect(onSendSpy.calledOnce).toBe(true)
+        expect(onClickSpy.calledOnce).toBe(true)
       })
     })
   })
