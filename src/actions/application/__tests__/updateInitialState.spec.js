@@ -7,7 +7,10 @@ describe('updateInitialState action creator test suite', function () {
 
   beforeEach(function () {
     initialState = {
-      messages: []
+      messages: [],
+      chat: {
+        buddy: {}
+      }
     }
     store = configureStore({ initialState })
   })
@@ -17,7 +20,7 @@ describe('updateInitialState action creator test suite', function () {
     store = null
   })
 
-  describe('given it receives a new list of messages', function () {
+  describe('given it receives a list of messages', function () {
     it('should update the state with the list', function () {
       const data = {
         messages: [
@@ -33,6 +36,18 @@ describe('updateInitialState action creator test suite', function () {
       store.dispatch(updateInitialState(data))
 
       expect(store.getState().messages.length).toBe(2)
+    })
+  })
+
+  describe('given it receives a buddy nickname', function () {
+    it('should update the state with the nickname', function () {
+      const data = {
+        buddyNickname: 'Fred'
+      }
+
+      store.dispatch(updateInitialState(data))
+
+      expect(store.getState().chat.buddy.nickname).toBe('Fred')
     })
   })
 })

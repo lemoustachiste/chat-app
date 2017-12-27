@@ -11,6 +11,17 @@ export default function updateInitialState (data) {
       })
     }
 
+    if (data.buddyNickname) {
+      dispatch({
+        type: ACTIONS.SET_BUDDY_NICKNAME,
+        payload: {
+          message: {
+            text: data.buddyNickname
+          }
+        }
+      })
+    }
+
     dispatch({
       type: ACTIONS.UPDATE_INITIAL_STATE
     })
