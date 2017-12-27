@@ -10,7 +10,6 @@ class App extends Component {
     super()
     const initialState = getInitialState()
     this.store = configureStore({ initialState })
-    domain.chat.connect()
   }
 
   render() {
