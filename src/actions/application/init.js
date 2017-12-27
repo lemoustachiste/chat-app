@@ -8,6 +8,14 @@ const storedProperties = [
   'buddyNickname'
 ]
 
+function updateStateFromStorage(dispatch) {
+  const retrievedDataFromStorage = readFromStorage()
+
+  if (Object.keys(retrievedDataFromStorage).length > 0) {
+    dispatch(actions.application.updateInitialState(retrievedDataFromStorage))
+  }
+}
+
 function readFromStorage () {
   return storedProperties.reduce((acc, key) => {
     const value = domain.storage.read(key)
@@ -27,7 +35,7 @@ export default function init () {
       dispatch(actions.messages.registerExternalMessage(data))
     })
 
-    const retrievedDataFromStorage = readFromStorage()
+    updateStateFromStorage(dispatch)
 
     dispatch({
       type: ACTIONS.INIT

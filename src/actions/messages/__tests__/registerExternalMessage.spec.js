@@ -1,6 +1,6 @@
-import configureStore from '../../store/configureStore'
-import { registerExternalMessage } from '../messages'
-import { EXTERNAL_ORIGIN, TYPES } from '../../constants/messages'
+import configureStore from '../../../store/configureStore'
+import { registerExternalMessage } from '../'
+import { EXTERNAL_ORIGIN, TYPES } from '../../../constants/messages'
 
 describe('registerExternalMessage action creator test suite', function () {
   describe('when it receives a message', function () {

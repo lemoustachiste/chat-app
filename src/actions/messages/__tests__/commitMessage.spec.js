@@ -1,6 +1,6 @@
-import configureStore from '../../store/configureStore'
-import { commitMessage } from '../messages'
-import { LOCAL_ORIGIN, TYPES } from '../../constants/messages'
+import configureStore from '../../../store/configureStore'
+import { commitMessage } from '../'
+import { LOCAL_ORIGIN, TYPES } from '../../../constants/messages'
 
 describe('commitMessage action creator test suite', function () {
   describe('when it receives a normal message', function () {
