@@ -20,6 +20,7 @@ then you will need to install the server's dependencies too:
 ```
     yarn start
 ```
+Application runs on port 3000
 
 ## Starting the server
 
@@ -27,6 +28,7 @@ then you will need to install the server's dependencies too:
     cd server
     yarn start
 ```
+Server runs on port 3001
 
 ## Running the tests
 
