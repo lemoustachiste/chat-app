@@ -43,7 +43,7 @@ CSS follows ITCSS approach.
 
 
 # Missing items or improvements
-- Chat view does not occupy the screen as human friendly as it could.
-- No production build/mode is available
-- No extra behaviours where added, so to be done one day
-- refactors here and there to improve level of encapsulation and maintainability (check for availability of socket, check for availability of server, using selectors in tests...)
+- [ ] Chat view does not occupy the screen as human friendly as it could.
+- [ ] No production build/mode is available yet.
+- [ ] No extra behaviours were added, so to be done one day
+- [ ] refactors here and there to improve level of encapsulation and maintainability (check for availability of socket, check for availability of server, using selectors in tests...)
