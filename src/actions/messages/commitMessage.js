@@ -1,5 +1,5 @@
 import * as ACTIONS from '../../constants/actionTypes'
-import { LOCAL_ORIGIN } from '../../constants/messages'
+import { LOCAL_ORIGIN, TYPES } from '../../constants/messages'
 import domain from '../../domain'
 
 const actionMapper = {
@@ -13,17 +13,20 @@ export default function commitMessage (text) {
     const messageAction = domain.messages.getAction(text)
     let action = ACTIONS.COMMIT_MESSAGE
     let thinking = false
+    let type = TYPES.MESSAGE
 
     if (messageAction.length > 0) {
       action = messageAction[0].action
       text = messageAction[0].parsedText
       thinking = actionMapper[action] === ACTIONS.THINKING_MESSAGE
+      type = actionMapper[action] === ACTIONS.SET_NICKNAME ? TYPES.NICKNAME : type
     }
 
     const message = {
       origin: LOCAL_ORIGIN,
       text,
-      ...thinking && { thinking }
+      ...thinking && { thinking },
+      type
     }
 
     dispatch({

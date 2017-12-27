@@ -1,26 +1,42 @@
 import configureStore from '../../store/configureStore'
 import { commitMessage } from '../messages'
-import { LOCAL_ORIGIN } from '../../constants/messages'
+import { LOCAL_ORIGIN, TYPES } from '../../constants/messages'
 
 describe('commitMessage action creator test suite', function () {
   describe('when it receives a normal message', function () {
-    it('should update the state with the new message passed in', function () {
-      const initialState = {
+    let initialState
+    let text
+    let store
+
+    beforeEach(function () {
+      initialState = {
         messages: []
       }
-
-      const text = 'Yo, what\'s up?'
-
-      const store = configureStore({ initialState })
+      text = 'Yo, what\'s up?'
+      store = configureStore({ initialState })
       store.dispatch(commitMessage(text))
+    })
 
-      const expectedOutput = {
-        origin: LOCAL_ORIGIN,
-        text
-      }
+    afterEach(function () {
+      initialState = null
+      text = null
+      store = null
+    })
 
+    it('should update the state with the new message passed in', function () {
       expect(store.getState().messages.length).toBe(1)
-      expect(store.getState().messages[0]).toEqual(expectedOutput)
+    })
+
+    it('should save the correct text for the message', function () {
+      expect(store.getState().messages[0].text).toBe(text)
+    })
+
+    it('should set the message origin as locally emitted', function () {
+      expect(store.getState().messages[0].origin).toBe(LOCAL_ORIGIN)
+    })
+
+    it('should set the message type as message', function () {
+      expect(store.getState().messages[0].type).toBe(TYPES.MESSAGE)
     })
   })
 
@@ -55,13 +71,7 @@ describe('commitMessage action creator test suite', function () {
         const store = configureStore({ initialState })
         store.dispatch(commitMessage(text))
 
-        const expectedOutput = {
-          origin: LOCAL_ORIGIN,
-          thinking: true,
-          text: 'I wonder why Alice didn\'t ask for coffee'
-        }
-
-        expect(store.getState().messages[0]).toEqual(expectedOutput)
+        expect(store.getState().messages[0].thinking).toBe(true)
       })
     })
 
