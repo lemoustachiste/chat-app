@@ -4,6 +4,6 @@ export default function persist ({ messages, chat }) {
   }
 
   if (chat && chat.buddy && chat.buddy.nickname) {
-    localStorage.setItem('buddyNickname', chat.buddy.nickname)
+    localStorage.setItem('buddyNickname', JSON.stringify(chat.buddy.nickname))
   }
 }

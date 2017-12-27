@@ -36,7 +36,7 @@ describe('Storage persist use case test suite', function () {
       }
     }
     storageService.persist(data)
-    const storedData = localStorage.__STORE__['buddyNickname']
+    const storedData = JSON.parse(localStorage.__STORE__['buddyNickname'])
     expect(storedData).toBe('Will')
   })
 })
