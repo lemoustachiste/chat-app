@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { configureStore, getInitialState } from './store'
 import { ChatBoard } from './components/organisms'
-import domain from './domain'
 require('./css/bundle.css')
 
 class App extends Component {
