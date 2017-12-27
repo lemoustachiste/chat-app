@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import messagesReducer from '../reducers/messages'
+import reducers from '../reducers'
 import { ENV } from '../utils/environment'
 
 export default function configureStore ({ initialState = {} }) {
@@ -12,7 +12,7 @@ export default function configureStore ({ initialState = {} }) {
   }
 
   return createStore(
-    messagesReducer,
+    combineReducers(reducers),
     initialState,
     applyMiddleware(...middlewares)
   )

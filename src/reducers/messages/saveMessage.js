@@ -1,9 +1,6 @@
 export default function saveMessage (state, { payload = {} }) {
-  return {
+  return [
     ...state,
-    messages: [
-      ...state.messages,
-      payload.message
-    ]
-  }
+    payload.message
+  ]
 }
