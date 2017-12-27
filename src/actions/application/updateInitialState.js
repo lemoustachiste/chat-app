@@ -2,7 +2,7 @@ import * as ACTIONS from '../../constants/actionTypes'
 
 export default function updateInitialState (data) {
   return (dispatch) => {
-    if (data.messages != null) {
+    if (data.messages != null && data.messages.length > 0) {
       dispatch({
         type: ACTIONS.UPDATE_MESSAGES,
         payload: {
