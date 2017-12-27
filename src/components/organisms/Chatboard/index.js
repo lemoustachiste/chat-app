@@ -1,3 +1,3 @@
-import ChatBoard from './ChatBoard'
+import { default as ChatBoard } from './ChatBoardContainer'
 
 export default ChatBoard
