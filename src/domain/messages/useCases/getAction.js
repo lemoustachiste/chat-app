@@ -6,6 +6,10 @@ const possibleActions = [
   {
     key: '/think',
     action: 'thinking'
+  },
+  {
+    key: '/nick',
+    action: 'setNickname'
   }
 ]
 

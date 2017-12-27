@@ -4,7 +4,8 @@ import domain from '../../domain'
 
 const actionMapper = {
   'deleteLast': ACTIONS.DELETE_LAST_MESSAGE,
-  'thinking': ACTIONS.THINKING_MESSAGE
+  'thinking': ACTIONS.THINKING_MESSAGE,
+  'setNickname': ACTIONS.SET_NICKNAME
 }
 
 export default function commitMessage (text) {
